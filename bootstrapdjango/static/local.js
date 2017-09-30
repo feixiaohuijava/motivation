@@ -52,13 +52,13 @@ var TableInit = function () {
 			columns: [
 				{
 					field: 'Name',
-					title: '部门名称',
+					title: '召唤师',
 				}, {
 					field: 'ParentName',
-					title: '上级部门'
+					title: '部落'
 				}, {
 					field: 'Level',
-					title: '部门级别'
+					title: '角色'
 				}, {
 					field: 'Desc',
 					title: '详情',
@@ -111,7 +111,7 @@ var TableInit = function () {
 				//设置为undefined可以获取pageNumber，pageSize，searchText，sortName，sortOrder
 				//设置为limit可以获取limit, offset, search, sort, order
 				//queryParamsType:"undefined",
-				queryParams: oTableInit.queryParams,//传递参数（*）
+				queryParams: detail_table(e,value,row,index),//传递参数（*）
 				sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
 				pageNumber: 1,                       //初始化加载第一页，默认第一页
 				pageSize: 5,                       //每页的记录行数（*）,当total<pageSize的时候，每页记录行数则为total了
@@ -147,8 +147,19 @@ var TableInit = function () {
 	}
 
 
+
+	function detail_table (e,value,row,index) {
+		console.log(row) //获取的是父表格一行的数据
+		console.log(row["Name"])
+		return row["Name"]
+	};
+
+
 	return oTableInit;
 };
+
+
+
 
 
 var ButtonInit = function () {
