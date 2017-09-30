@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Theme Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+{#    <link href="../static/js/bootstrap.min.css.js" rel="stylesheet">#}
+{#	  <script type="text/javascript" src="../static/js/bootstrap.min.css.js"></script>#}
+    <!-- Bootstrap theme -->
+{#    <link href="../../dist/css/bootstrap-theme.min.css" rel="stylesheet">#}
+{#    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->#}
+{#    <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">#}
+{##}
+{#    <!-- Custom styles for this template -->#}
+{#    <link href="theme.css" rel="stylesheet">#}
+{##}
+{#    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->#}
+{#    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->#}
+{#    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>#}
+	  <script type="text/javascript" src="../static/js/jquery-3.2.1.min.js"></script>
+      <script type="text/javascript" >
+      $.ajax({
+	     type: "GET",
+	     async: true, //异步执行 默认是true异步
+	     url: '/getdata/',
+	     dataType: "json",
+	     jsonp: "callback",
+	     success: function(data){
+	     	console.log(data)
+		    console.log(data['dema'])
+	     },
+	     fail:function () {
+	     	console.log("it failed!")
+	     },
+      });
+      </script>
+	  <script type="text/javascript">
+		  $.ajax({
+			  type:'GET',
+			  async:true,
+			  url:'/showselect',
+			  dataType:'json',
+			  jsonp:'callback',
+			  success:function (data) {
+			  	console.log(data)
+				console.log(data.length)
+				for(var i=0;i<data.length;i++)
+				{
+					console.log("start")
+					console.log(data[i])
+					$('#selectbutton').append("<option value='"+data[i]+"'>"+data[i]+"</option>");
+				}
+
+			  }
+		  })
+	  </script>
+
+  </head>
+
+  <body>
+
+    <div class="container theme-showcase" role="main">
+      <div class="page-header">
+        <h1>Tables</h1>
+      </div>
+	  <div class="row">
+		  <select id="selectbutton">
+		  </select>
+	  </div>
+      <div class="row">
+        <div id='showintable' class="col-md-6">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+    </div> <!-- /container -->
+
+
+{#    <!-- Bootstrap core JavaScript#}
+{#    ================================================== -->#}
+{#    <!-- Placed at the end of the document so the pages load faster -->#}
+{#    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>#}
+{#    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>#}
+{#    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>#}
+{#    <script src="../../assets/js/docs.min.js"></script>#}
+{#    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->#}
+{#    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>#}
+  </body>
+</html>
