@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.db import connections
 import json
 import logging
+from pymongo import MongoClient
 
 log = logging.getLogger('module view.py')
 log.setLevel(logging.INFO)
@@ -16,7 +17,7 @@ def showdata(request):
     return render(request, 'demo.html')
 
 
-def getdata(request):
+def getdata_mysql(request):
     result = []
     limit = request.GET.get('limit')
     offset = request.GET.get('offset')
@@ -43,7 +44,37 @@ def getdata(request):
     data2 = {'total':total,'rows':result}
     return HttpResponse(json.dumps(data2))
 
+def getdata_mongodb(request):
+    limit = request.GET.get('limit')
+    offset = request.GET.get('offset')
+    departmentname = request.GET.get('departmentname')
+    search = request.GET.get('search')
+    print limit
+    print offset
+    print departmentname
+    print search
 
+    total = 0
+    result = []
+    Client = MongoClient("localhost", 27017)
+    #db是demaxiya
+    db = Client.demaxiya
+    #collection是demaxiya
+    colleciton = db.demaxiya
+
+
+    if search is None or search == "":
+        total = colleciton.count()
+        for data in colleciton.find().limit(int(limit)).skip(int(offset)):
+            data['_id'] = str(data['_id'])
+            result.append(data)
+    else:
+        for data in colleciton.find({"Name":search}).limit(int(limit)).skip(int(offset)):
+            data['_id'] = str(data['_id'])
+            result.append(data)
+            total += 1
+    data2 = {'total':total,'rows':result}
+    return HttpResponse(json.dumps(data2))
 
 def showselect(request):
     data1 = {"ID":"1","team":"skt","honour":"王者"}

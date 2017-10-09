@@ -18,7 +18,7 @@ var TableInit = function () {
 	oTableInit.Init = function () {
 		$('#tb_departments').bootstrapTable('destroy');
 		$('#tb_departments').bootstrapTable({
-			url: '/getdata/',         //请求后台的URL（*）
+			url: '/getdata_mongodb/',         //请求后台的URL（*）
 			method: 'get',                      //请求方式（*）
 			toolbar: '#toolbar',                //工具按钮用哪个容器
 			striped: true,                      //是否显示行间隔色
@@ -45,11 +45,13 @@ var TableInit = function () {
 			// 	console.log(res)
 			//     return res.DATA;
 			// },
-			uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+			uniqueId: "_id",                     //每一行的唯一标识，一般为主键列
 			showToggle: true,                    //是否显示详细视图和列表视图的切换按钮
 			cardView: false,                    //是否显示详细视图
 			detailView: false,                   //是否显示父子表
-			columns: [
+			columns: [{
+                    checkbox : true
+				},
 				{
 					field: 'Name',
 					title: '召唤师',
@@ -121,13 +123,13 @@ var TableInit = function () {
 				//showColumns: true,                  //是否显示所有的列
 				//showRefresh: true,                  //是否显示刷新按钮
 				//minimumCountColumns: 2,             //最少允许的列数
-				//clickToSelect: true,                //是否启用点击选中行
+				clickToSelect: true,                //是否启用点击选中行
 				//height: 500,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
 				// responseHandler:function (res) {      //这个responseHandler如果注释，table中线条会不对齐
 				// 	console.log(res)
 				//     return res.DATA;
 				// },
-				uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+				uniqueId: "_id",                     //每一行的唯一标识，一般为主键列
 				//showToggle: true,                    //是否显示详细视图和列表视图的切换按钮
 				cardView: false,                    //是否显示详细视图
 				detailView: false,                   //是否显示父子表
