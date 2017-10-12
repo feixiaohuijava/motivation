@@ -6,6 +6,8 @@ from django.db import connections
 import json
 import logging
 from pymongo import MongoClient
+from bson.objectid import ObjectId
+from django.views.decorators.csrf import csrf_exempt
 
 log = logging.getLogger('module view.py')
 log.setLevel(logging.INFO)
@@ -14,7 +16,7 @@ def showdata(request):
     dict1 = {'key1':1,'key2':2}
     dict2 ={'key1':3,'key2':4}
     data = [dict1,dict2]
-    return render(request, 'demo.html')
+    return render(request, 'login.html')
 
 
 def getdata_mysql(request):
@@ -75,6 +77,27 @@ def getdata_mongodb(request):
             total += 1
     data2 = {'total':total,'rows':result}
     return HttpResponse(json.dumps(data2))
+
+def update_mongdb(request):
+    Client = MongoClient("localhost", 27017)
+    #db是demaxiya
+    db = Client.demaxiya
+    #collection是demaxiya
+    colleciton = db.demaxiya
+
+    colleciton.update({"_id":ObjectId('59d726c819292b0355c45e28')},{"$set":{"Level":"5"}})
+
+@csrf_exempt
+def login(request):
+    user_name = request.POST.get("user_name")
+    password = request.POST.get("password")
+    if user_name == "123" and password == "123":
+        return HttpResponse(json.dumps({'SUCCESS':'success'}))
+    else:
+        return HttpResponse(json.dumps({'FAILED':'fail'}))
+
+def success_login(request):
+    return render(request,'demo.html')
 
 def showselect(request):
     data1 = {"ID":"1","team":"skt","honour":"王者"}

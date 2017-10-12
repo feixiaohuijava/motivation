@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^getdata_mysql/$',getdata_mysql),
     url(r'^getdata_mongodb/$',getdata_mongodb),
     url(r'^showselect/$',showselect),
-    # url(r'^pausejob/',pausejob),
-    # url(r'^addjob/',addjob),
+    url(r'^login/$',login),
+    url(r'^success_login/$',success_login),
+
 ]

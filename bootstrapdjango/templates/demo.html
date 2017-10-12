@@ -45,7 +45,7 @@
 	        </div>
 
 	        <div id="toolbar" class="btn-group">
-	            <button id="btn_add" type="button" class="btn btn-default">
+	            <button id="btn_add" type="button" class="btn btn-default" onclick="add('');">
 	                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
 	            </button>
 	            <button id="btn_edit" type="button" class="btn btn-default">
@@ -79,6 +79,25 @@
 			</div>
 		</div>
 	</div>
+
+
+    <div class="modal fade " id="myModal_update_insert" tabindex="-1" role="dialog" aria-labelledby="myModalLable" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content my-modal">
+                <div class="modal-header hint">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLable">详细信息 </h4>
+
+                </div>
+                <div class="modal-body" id="id-modal-body">
+
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
