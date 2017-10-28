@@ -1,0 +1,114 @@
+*** Starting uWSGI 2.0.15 (64bit) on [Mon Oct 23 14:04:34 2017] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 9.0.0 (clang-900.0.37) on 23 October 2017 11:00:44
+os: Darwin-16.7.0 Darwin Kernel Version 16.7.0: Thu Jun 15 17:36:27 PDT 2017; root:xnu-3789.70.16~2/RELEASE_X86_64
+nodename: feixiaohuideMacBook-Pro.local
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/feixiaohui/bootstrapdjango/motivation/bootstrapdjango/script
+writing pidfile to /Users/feixiaohui/bootstrapdjango/motivation/bootstrapdjango/script/uwsgi.pid
+detected binary path: /Library/Frameworks/Python.framework/Versions/2.7/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /Users/feixiaohui/bootstrapdjango/motivation/bootstrapdjango/
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 4864
+building mime-types dictionary from file /etc/apache2/mime.types...1002 entry found
+lock engine: OSX spinlocks
+thunder lock: enabled
+uWSGI http bound on 192.168.14.230:8080 fd 3
+uwsgi socket 0 bound to UNIX address /Users/feixiaohui/bootstrapdjango/motivation/bootstrapdjango/script/uwsgi.sock fd 6
+Python version: 2.7.13 (v2.7.13:a06454b1afa1, Dec 17 2016, 12:39:47)  [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)]
+Python main interpreter initialized at 0x7fbafe418e60
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 485664 bytes (474 KB) for 5 cores
+*** Operational MODE: preforking ***
+ImportError: No module named bootstrapdjango.wsgi
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 6552)
+spawned uWSGI worker 1 (pid: 6553, cores: 1)
+spawned uWSGI worker 2 (pid: 6554, cores: 1)
+spawned uWSGI worker 3 (pid: 6555, cores: 1)
+spawned uWSGI worker 4 (pid: 6556, cores: 1)
+spawned uWSGI worker 5 (pid: 6557, cores: 1)
+spawned uWSGI http 1 (pid: 6558)
+--- no python application found, check your startup logs for errors ---
+[pid: 6554|app: -1|req: -1/1] 192.168.14.230 () {38 vars in 710 bytes} [Mon Oct 23 14:04:54 2017] GET /showdata/ => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+*** Starting uWSGI 2.0.15 (64bit) on [Mon Oct 23 14:07:31 2017] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 9.0.0 (clang-900.0.37) on 23 October 2017 11:00:44
+os: Darwin-16.7.0 Darwin Kernel Version 16.7.0: Thu Jun 15 17:36:27 PDT 2017; root:xnu-3789.70.16~2/RELEASE_X86_64
+nodename: feixiaohuideMacBook-Pro.local
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/feixiaohui/bootstrapdjango/motivation/bootstrapdjango/script
+writing pidfile to /Users/feixiaohui/bootstrapdjango/motivation/bootstrapdjango/script/uwsgi.pid
+detected binary path: /Library/Frameworks/Python.framework/Versions/2.7/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /Users/feixiaohui/bootstrapdjango/motivation/bootstrapdjango/
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 4864
+building mime-types dictionary from file /etc/apache2/mime.types...1002 entry found
+lock engine: OSX spinlocks
+thunder lock: enabled
+probably another instance of uWSGI is running on the same address (192.168.14.230:8080).
+bind(): Address already in use [core/socket.c line 769]
+--- no python application found, check your startup logs for errors ---
+[pid: 6554|app: -1|req: -1/2] 192.168.14.230 () {38 vars in 709 bytes} [Mon Oct 23 14:07:54 2017] GET /showdata/ => generated 21 bytes in 0 msecs (HTTP/1.1 500) 2 headers in 83 bytes (0 switches on core 0)
+gateway "uWSGI http 1" has been buried (pid: 6558)
+...brutally killing workers...
+worker 5 buried after 1 seconds
+worker 4 buried after 1 seconds
+worker 3 buried after 1 seconds
+[deadlock-detector] pid 6554 was holding lock thunder (0x102078000)
+worker 2 buried after 1 seconds
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /Users/feixiaohui/bootstrapdjango/motivation/bootstrapdjango/script
+closing all non-uwsgi socket fds > 2 (max_fd = 4864)...
+found fd 6 mapped to socket 0 (/Users/feixiaohui/bootstrapdjango/motivation/bootstrapdjango/script/uwsgi.sock)
+running /Library/Frameworks/Python.framework/Versions/2.7/bin/uwsgi
+[uWSGI] getting INI configuration from uwsgi.ini
+[uwsgi-static] added mapping for /static => /Users/feixiaohui/bootstrapdjango/motivation/bootstrapdjango/static
+*** Starting uWSGI 2.0.15 (64bit) on [Fri Oct 27 18:54:44 2017] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 9.0.0 (clang-900.0.37) on 23 October 2017 11:00:44
+os: Darwin-16.7.0 Darwin Kernel Version 16.7.0: Thu Jun 15 17:36:27 PDT 2017; root:xnu-3789.70.16~2/RELEASE_X86_64
+nodename: feixiaohuideMacBook-Pro.local
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 4
+current working directory: /Users/feixiaohui/bootstrapdjango/motivation/bootstrapdjango/script
+detected binary path: /Library/Frameworks/Python.framework/Versions/2.7/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /Users/feixiaohui/bootstrapdjango/motivation/bootstrapdjango/
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 4864
+building mime-types dictionary from file /etc/apache2/mime.types...1002 entry found
+lock engine: OSX spinlocks
+thunder lock: enabled
+uWSGI http bound on 192.168.14.230:8080 fd 3
+uwsgi socket 0 bound to UNIX address /Users/feixiaohui/bootstrapdjango/motivation/bootstrapdjango/script/uwsgi.sock fd 6
+Python version: 2.7.13 (v2.7.13:a06454b1afa1, Dec 17 2016, 12:39:47)  [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)]
+Python main interpreter initialized at 0x7ffbf4c19650
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 485664 bytes (474 KB) for 5 cores
+*** Operational MODE: preforking ***
+ImportError: No module named bootstrapdjango.wsgi
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 6552)
+spawned uWSGI worker 1 (pid: 23477, cores: 1)
+spawned uWSGI worker 2 (pid: 23478, cores: 1)
+spawned uWSGI worker 3 (pid: 23479, cores: 1)
+spawned uWSGI worker 4 (pid: 23480, cores: 1)
+spawned uWSGI worker 5 (pid: 23481, cores: 1)
+spawned uWSGI http 1 (pid: 23482)
