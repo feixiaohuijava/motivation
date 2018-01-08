@@ -16,9 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-# from apschedulerapp.configurescheduler import *
 from bootstrapdjango.view import *
-# from apschedulerapp.views import *
+from do_apscheduler.views import *
+import logging
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -28,5 +29,21 @@ urlpatterns = [
     url(r'^showselect/$',showselect),
     url(r'^login/$',login),
     url(r'^success_login/$',success_login),
-
+    url(r'^send_data_to_ajax/$',send_data_to_ajax),
+    url(r'^reach_send_data_to_ajax/$',reach_send_data_to_ajax),
+    url(r'^get_job_list/$',get_job_list),
+    url(r'^add_job/$',create_job),
+    url(r'^modify_job/$',modify_job),
+    url(r'^remove_job/$',remove_job),
 ]
+
+logger_urls = logging.getLogger('django.urls')
+logger_urls.info("start django server and you are in urls.py ")
+
+try:
+    from do_apscheduler.apscheduler_demo.start_apscheduler import *
+    logger.info("you are in urls.py")
+    logger.info(id(scheduler))
+except Exception,e:
+    logger_urls.error(e)
+    logger_urls.error("there is wrong in start_apscheduler when calling urls.py")

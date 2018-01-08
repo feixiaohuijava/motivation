@@ -1,10 +1,12 @@
 # coding:utf-8
 
+from django.http import HttpRequest
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.db import connections
 import json
 import logging
+import time
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 from django.views.decorators.csrf import csrf_exempt
@@ -103,5 +105,13 @@ def showselect(request):
     data1 = {"ID":"1","team":"skt","honour":"王者"}
     result = []
     result.append(data1)
+    time.sleep(10)
     data2 = {'total':1,'rows':result}
     return HttpResponse(json.dumps(data2))
+
+
+def reach_send_data_to_ajax(request):
+    return render(request,'ajax_recursion.html')
+
+def send_data_to_ajax(request):
+    return HttpResponse(json.dumps({"1":"1"}))

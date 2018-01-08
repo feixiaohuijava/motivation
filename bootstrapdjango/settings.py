@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrapdjango',
+    'record_req_rsp',
+    'do_apscheduler',
 
 ]
 
@@ -51,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'record_req_rsp.middleware.LoggingMiddleware',
 ]
 
 ROOT_URLCONF = 'bootstrapdjango.urls'
@@ -73,6 +76,30 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'bootstrapdjango.wsgi.application'
 
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '[%(asctime)s] [%(levelname)s] %(message)s'
+        },
+    },
+    'handlers': {
+        'file': {
+            'level':'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename':BASE_DIR + '/'+'django_debug.log',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'DEBUG',  # change debug level as appropiate
+            'propagate': True,
+        },
+    },
+}
 
 
 # Database
