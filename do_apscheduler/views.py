@@ -5,6 +5,7 @@ from django.shortcuts import render
 
 # Create your views here.
 import time
+import json
 from apscheduler_demo.config_apscheduler import scheduler,logger
 from django.http import HttpResponse
 from bootstrapdjango.settings import BASE_DIR
@@ -66,7 +67,10 @@ def remove_job(request):
     """
     result = scheduler.remove_all_jobs()
     logger.info(result)
-    return HttpResponse({"dema":"ad"})
+    b = HttpResponse(json.dumps({"dema":"ad"}))
+    print b.content
+    print type(b.content)
+    return b
 #
 # def pause_job(request):
 #     # job_list = scheduler.get_jobs()

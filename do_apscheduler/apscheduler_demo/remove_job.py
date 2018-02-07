@@ -42,6 +42,7 @@ def my_listener(event):
         logger.info('The job worked :)')
 
 if __name__ == '__main__':
+# def main():
     jobstores = {
         # 'mongo': MongoDBJobStore(),
         # 'default': SQLAlchemyJobStore(url='sqlite:///jobs.sqlite')
@@ -59,33 +60,14 @@ if __name__ == '__main__':
 
     scheduler = BackgroundScheduler(jobstores=jobstores,executors=executors,job_defaults=job_defaults,timezone='Asia/Shanghai')
     scheduler.add_listener(my_listener, EVENT_JOB_EXECUTED | EVENT_JOB_ERROR)
-    # add_result = scheduler.add_job(tick, 'interval', seconds=5,id='blocking_interval_one_two',max_instances=3) #间隔10秒钟执行一次
-    # logger.info(add_result)
-    # scheduler.reschedule_job(job_id='blocking_interval',trigger='interval',seconds=10)
-    # remove_result = scheduler.remove_all_jobs()
-    # print ("remove_result",remove_result)
     scheduler.start()    #这里的调度任务是独立的一个线程
-    #0 0 2 1 * ? *
-    # add_result = scheduler.add_job(tick,trigger='cron',kwargs={"parameter":"json"},
-    #                                second='0',minute='52',hour='10',day='2',month='*',day_of_week='mon',year='*',
-    #                                id='blocking_interval_one_two',max_instances=10) #间隔10秒钟执行一次
-    # logger.info(add_result)
-    # remove_result = scheduler.remove_job(job_id='blocking_interval_one_two')
-    # print "========"
     remove_result = scheduler.remove_all_jobs()
     print ("remove_result",remove_result)
-    # print "========"
-    # result = scheduler.get_jobs()
-    # print result
-    # re_result = scheduler.reschedule_job(job_id='blocking_interval',trigger='interval',seconds=10)
-    # print ("re_result",result)
-    # print('Press Ctrl+{0} to exit'.format('Break' if os.name == 'nt' else 'C'))
-
     try:
         # This is here to simulate application activity (which keeps the main thread alive).
         while True:
             time.sleep(2)    #其他任务是独立的线程执行
-            print('sleep!')
+            print "sleep"
     except (KeyboardInterrupt, SystemExit):
         # Not strictly necessary if daemonic mode is enabled but should be done if possible
         scheduler.shutdown()

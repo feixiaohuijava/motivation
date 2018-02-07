@@ -11,6 +11,10 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
+# try:
+#     from do_apscheduler.apscheduler_demo import config_apscheduler
+# except ImportError,e:
+#     print e
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "bootstrapdjango.settings")
 

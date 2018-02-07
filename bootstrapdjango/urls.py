@@ -41,7 +41,7 @@ logger_urls = logging.getLogger('django.urls')
 logger_urls.info("start django server and you are in urls.py ")
 
 try:
-    from do_apscheduler.apscheduler_demo.start_apscheduler import *
+    from do_apscheduler.apscheduler_demo import config_apscheduler
     logger.info("you are in urls.py")
     logger.info(id(scheduler))
 except Exception,e:

@@ -95,9 +95,9 @@ if __name__ == '__main__':
     # 2   1
 
     add_result = scheduler.add_job(tick,trigger='cron',kwargs={"parameter":"json"},
-                                   second=None,minute=minute,hour=hour,day=day,month=month,day_of_week=day_of_week,
+                                   second=None,minute='*/2',hour='1-3',day='*',month=None,day_of_week=None,
                                    year=None,
-                                   id='blocking_interval_one_two',max_instances=10) #间隔10秒钟执行一次
+                                   id='blocking_interval_one_two_three',max_instances=10) #间隔10秒钟执行一次
     logger.info(add_result)
     # remove_result = scheduler.remove_job(job_id='blocking_interval_one_two')
     # print "========"
