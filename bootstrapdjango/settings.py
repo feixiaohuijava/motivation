@@ -28,6 +28,7 @@ DJANGO_LOG_LEVEL = DEBUG
 
 
 ALLOWED_HOSTS = ['192.168.14.230','127.0.0.1']
+INTERNAL_IPS = ('127.0.0.1',)
 
 
 # Application definition
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'bootstrapdjango',
     'record_req_rsp',
     'do_apscheduler',
+    'debug_toolbar',
 
 ]
 
@@ -53,8 +55,26 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     # 'record_req_rsp.middleware.LoggingMiddleware',
 ]
+
+#django-debug-toolbar settings start
+DEBUG_TOOLBAR_PANELS = [
+    'debug_toolbar.panels.versions.VersionsPanel',
+    'debug_toolbar.panels.timer.TimerPanel',
+    'debug_toolbar.panels.settings.SettingsPanel',
+    'debug_toolbar.panels.headers.HeadersPanel',
+    'debug_toolbar.panels.request.RequestPanel',
+    'debug_toolbar.panels.sql.SQLPanel',
+    'debug_toolbar.panels.staticfiles.StaticFilesPanel',
+    'debug_toolbar.panels.templates.TemplatesPanel',
+    'debug_toolbar.panels.cache.CachePanel',
+    'debug_toolbar.panels.signals.SignalsPanel',
+    'debug_toolbar.panels.logging.LoggingPanel',
+    'debug_toolbar.panels.redirects.RedirectsPanel',
+]
+#django-debug-toolbar settings end
 
 ROOT_URLCONF = 'bootstrapdjango.urls'
 

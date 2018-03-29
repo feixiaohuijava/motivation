@@ -13,12 +13,13 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url,include
 from django.contrib import admin
 
 from bootstrapdjango.view import *
 from do_apscheduler.views import *
 import logging
+import debug_toolbar
 
 
 urlpatterns = [
@@ -35,6 +36,7 @@ urlpatterns = [
     url(r'^add_job/$',create_job),
     url(r'^modify_job/$',modify_job),
     url(r'^remove_job/$',remove_job),
+    url(r'^__debug__/', include(debug_toolbar.urls)),
 ]
 
 logger_urls = logging.getLogger('django.urls')
